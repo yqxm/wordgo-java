@@ -1,0 +1,7 @@
+server:
+  port: 8088
+spring:
+  datasource:
+    username: 7qm64hjeepai5t8lip80
+    password: pscale_pw_iInnJK9KuPrfxNvbyuwrZbBPvgSGHlhsAV5OFs8SCZi
+    url: jdbc:mysql://7qm64hjeepai5t8lip80:pscale_pw_iInnJK9KuPrfxNvbyuwrZbBPvgSGHlhsAV5OFs8SCZi@ap-southeast.connect.psdb.cloud/wordgo?sslaccept=strict
