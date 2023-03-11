@@ -1,15 +1,14 @@
-package com.huhu.wordgo.model;
+package com.huhu.wordgo.repo.po;
 
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
-public class OriginPo {
+public class SentencePO {
     private Integer id;
-    private Integer originId;
-    private String poIndex;
-    private String poName;
+    private String content;
+    private PositionPO po;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
 }

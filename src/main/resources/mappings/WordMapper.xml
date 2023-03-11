@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huhu.wordgo.repo.dao.WordDao">
+    <resultMap id="BaseResult" type="com.huhu.wordgo.repo.po.WordPO">
+        <id property="id" column="id" />
+        <result property="alphas" column="alphas" />
+        <result property="createTime" column="create_time" />
+        <result property="updateTime" column="update_time" />
+    </resultMap>
+
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResult">
+        SELECT * FROM word WHERE id = #{id}
+    </select>
+
+    <insert id="insertWord" parameterType="com.huhu.wordgo.repo.po.WordPO">
+        INSERT INTO word(alphas, create_time, update_time)
+        VALUES (#{alphas}, #{createTime}, #{updateTime})
+    </insert>
+
+    <update id="updateWord" parameterType="com.huhu.wordgo.repo.po.WordPO">
+        UPDATE word SET alphas=#{alphas}, create_time=#{createTime}, update_time=now() WHERE id = #{id}
+    </update>
+</mapper>

@@ -1,5 +1,8 @@
 package com.huhu.wordgo.model;
 
+import com.huhu.wordgo.repo.po.OriginPO;
+import com.huhu.wordgo.repo.po.PositionPO;
+import com.huhu.wordgo.repo.po.WordPO;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -17,27 +20,5 @@ public class WsInput {
     String content;
 
     List<String> wordList;
-
-    public OriginPo createOriginPo() {
-        OriginPo op = new OriginPo();
-        op.setOriginId(originId);
-        op.setPoIndex(poIndex);
-        op.setPoName(poName);
-        op.setCreateTime(LocalDateTime.now());
-        op.setUpdateTime(LocalDateTime.now());
-        return op;
-    }
-
-    public List<Word> createWordList() {
-        List<Word> results = new ArrayList<>();
-        for (String s : wordList) {
-            Word w = new Word();
-            w.setAlphas(s);
-            w.setCreateTime(LocalDateTime.now());
-            w.setUpdateTime(LocalDateTime.now());
-            results.add(w);
-        }
-        return results;
-    }
 
 }
