@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huhu.wordgo.repo.dao.PositionDao">
+    <resultMap id="BaseResult" type="com.huhu.wordgo.repo.po.PositionPO">
+        <id property="id" column="id" />
+        <result property="originId" column="origin_id" />
+        <result property="poIndex" column="po_index" />
+        <result property="poName" column="po_name" />
+        <result property="create_time" column="createTime" />
+        <result property="update_time" column="updateTime" />
+    </resultMap>
+
+    <insert id="insertPosition" parameterType="com.huhu.wordgo.repo.po.PositionPO">
+        INSERT INTO position (origin_id, po_index, po_name, create_time, update_time)
+        VALUES (#{originId}, #{poIndex}, #{poName}, #{createTime}, #{updateTime})
+    </insert>
+</mapper>

@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface WordDao {
@@ -13,5 +14,7 @@ public interface WordDao {
 
     void updateWord(WordPO wordPO);
 
-    WordPO selectById(Integer id);
+    Optional<WordPO> selectById(Integer id);
+
+    Optional<WordPO> selectByAlphas(String alphas);
 }

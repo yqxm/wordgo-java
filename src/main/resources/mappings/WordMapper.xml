@@ -12,7 +12,11 @@
         SELECT * FROM word WHERE id = #{id}
     </select>
 
-    <insert id="insertWord" parameterType="com.huhu.wordgo.repo.po.WordPO">
+    <select id="selectByAlphas" parameterType="java.lang.String" resultMap="BaseResult">
+        SELECT * FROM word WHERE alphas = #{alphas}
+    </select>
+
+    <insert id="insertWord" parameterType="com.huhu.wordgo.repo.po.WordPO" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO word(alphas, create_time, update_time)
         VALUES (#{alphas}, #{createTime}, #{updateTime})
     </insert>

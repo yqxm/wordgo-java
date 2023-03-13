@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 @MybatisTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class TestWordDaoPO {
+public class TestWordDao {
 
     WordDao wordDao;
 
@@ -23,8 +23,14 @@ public class TestWordDaoPO {
 
     @Test
     public void testSelectWordById() {
-        WordPO wordPO = wordDao.selectById(1);
-        Assert.isTrue(wordPO != null && wordPO.getAlphas().equals("excessive"), "Base on the test data, the word with id 1 is excessive.");
+        var opo = wordDao.selectById(1);
+        Assert.isTrue(opo.isPresent() && opo.get().getAlphas().equals("excessive"), "Base on the test data, the word with id 1 is excessive.");
+    }
+
+    @Test
+    public void testSelectWordByAlphas() {
+        var opo = wordDao.selectByAlphas("excessive");
+        Assert.isTrue(opo.isPresent() && opo.get().getAlphas().equals("excessive"), "Base on the test data, the word with id 1 is excessive.");
     }
 
     @Test
@@ -34,5 +40,6 @@ public class TestWordDaoPO {
         wordPO.setCreateTime(LocalDateTime.now());
         wordPO.setUpdateTime(LocalDateTime.now());
         wordDao.insertWord(wordPO);
+        System.out.println(wordPO.getId());
     }
 }

@@ -21,4 +21,36 @@ public class WsInput {
 
     List<String> wordList;
 
+    public List<Word> createWordList() {
+        List<Word> l = new ArrayList<>();
+        for (String s : wordList) {
+            Word w = new Word();
+            w.setAlphas(s);
+            w.setCreateTime(LocalDateTime.now());
+            w.setUpdateTime(LocalDateTime.now());
+            l.add(w);
+        }
+        return l;
+    }
+
+    public Position createPosition(Origin origin) {
+        Position position = new Position();
+        position.setOrigin(origin);
+        position.setPoIndex(poIndex);
+        position.setPoName(poName);
+        position.setCreateTime(LocalDateTime.now());
+        position.setUpdateTime(LocalDateTime.now());
+        return position;
+    }
+
+    public Sentence createSentence(Position position) {
+        Sentence sentence = new Sentence();
+        sentence.setPosition(position);
+        sentence.setContent(content);
+        sentence.setCreateTime(LocalDateTime.now());
+        sentence.setUpdateTime(LocalDateTime.now());
+        return sentence;
+    }
+
+
 }
