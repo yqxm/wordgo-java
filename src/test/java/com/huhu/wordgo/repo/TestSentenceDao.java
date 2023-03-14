@@ -7,6 +7,7 @@ import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.test.annotation.Commit;
+import org.springframework.util.Assert;
 
 import java.time.LocalDateTime;
 
@@ -29,5 +30,6 @@ public class TestSentenceDao {
         po.setCreateTime(LocalDateTime.now());
         po.setUpdateTime(LocalDateTime.now());
         sentenceDao.insertSentence(po);
+        Assert.isTrue(po.getId() != null, "id is not null after insertion.");
     }
 }

@@ -40,6 +40,6 @@ public class TestWordDao {
         wordPO.setCreateTime(LocalDateTime.now());
         wordPO.setUpdateTime(LocalDateTime.now());
         wordDao.insertWord(wordPO);
-        System.out.println(wordPO.getId());
+        Assert.isTrue(wordPO.getId() != null, "id is not null after insertion.");
     }
 }

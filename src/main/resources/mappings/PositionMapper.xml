@@ -10,7 +10,7 @@
         <result property="update_time" column="updateTime" />
     </resultMap>
 
-    <insert id="insertPosition" parameterType="com.huhu.wordgo.repo.po.PositionPO">
+    <insert id="insertPosition" parameterType="com.huhu.wordgo.repo.po.PositionPO" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO position (origin_id, po_index, po_name, create_time, update_time)
         VALUES (#{originId}, #{poIndex}, #{poName}, #{createTime}, #{updateTime})
     </insert>

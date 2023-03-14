@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.util.Assert;
 
 import java.time.LocalDateTime;
 
@@ -29,5 +30,6 @@ public class TestPositionDao {
         po.setCreateTime(LocalDateTime.now());
         po.setUpdateTime(LocalDateTime.now());
         positionDao.insertPosition(po);
+        Assert.isTrue(po.getId() != null, "id is not null after insertion.");
     }
 }
