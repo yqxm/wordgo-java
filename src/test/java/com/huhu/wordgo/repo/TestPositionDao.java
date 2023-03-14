@@ -32,4 +32,14 @@ public class TestPositionDao {
         positionDao.insertPosition(po);
         Assert.isTrue(po.getId() != null, "id is not null after insertion.");
     }
+
+    @Test
+    public void testSelectPosition() {
+        PositionPO toFind = new PositionPO();
+        toFind.setOriginId(2);
+        toFind.setPoIndex("2.3");
+        toFind.setPoName("Kernel organization");
+        var opo = positionDao.selectPositionByOriginIdAndPoIndexAndPoName(toFind);
+        Assert.isTrue(opo.isPresent(), "This position po should be find in the test data");
+    }
 }

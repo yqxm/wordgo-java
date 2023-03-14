@@ -10,4 +10,5 @@ public class WordPO {
     private String alphas;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
+
 }

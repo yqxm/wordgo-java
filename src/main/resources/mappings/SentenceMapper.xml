@@ -14,4 +14,12 @@
         VALUES (#{content}, #{positionId}, #{createTime}, #{updateTime})
     </insert>
 
+    <select id="selectSentenceByContentAndPositionId" parameterType="com.huhu.wordgo.repo.po.SentencePO" resultMap="BaseResult">
+        SELECT *
+        FROM sentence
+        WHERE content = #{content}
+          AND position_id = #{positionId}
+    </select>
+
+
 </mapper>
